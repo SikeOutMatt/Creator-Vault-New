@@ -22,7 +22,7 @@
              </div>
             <div class="flex flex-col mt-7">
                 <label class="text-2xl font-bold"> Upload File </label>
-                <input type="file" name="file" id="file" class=""  />
+                <input type="file" accept=".mp4 .mov" name="file" id="file" class=""  />
             </div>
             <div class="flex flex-col mt-7">
                 <label class="text-2xl font-bold" for="videoDescription"> Video Description </label>
@@ -30,7 +30,7 @@
             </div>
             <div class="flex flex-col mt-7">
                 <label class="text-2xl font-bold"> Upload Thumbnail </label>
-                <input type="file" name="file" id="file" class=""  />
+                <input type="file" name="file" accept=".png .jpeg" id="file" class=""  />
             </div>
             <div class="flex flex-col mt-7">
                 <label class="text-2xl font-bold" for="videoTitle"> Price </label>

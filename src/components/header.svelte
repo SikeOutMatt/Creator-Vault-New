@@ -2,6 +2,18 @@
 import Logo from '../lib/assets/creatorvaultlogo.png'
 import Hamburer from '../lib/assets/hamburger.png'
 import mobileLogo from '../lib/assets/CreatorVaultMobile.png'
+import Sidebar from './sidebar.svelte'
+
+function showSidebar() {
+    let sidebar = document.getElementById("sidebar")
+
+    if (sidebar.classList.contains("hidden") ) {
+        sidebar.classList.remove("hidden");
+    } else {
+        sidebar.classList.add("hidden");
+    };
+};
+
 
 </script> 
 
@@ -19,7 +31,7 @@ import mobileLogo from '../lib/assets/CreatorVaultMobile.png'
             </div>
             <div class>
                 <nav class=""> 
-                    <img class="md:hidden mt-10" src={Hamburer} width="30" height="30" alt="hamburger menu icon">
+                    <img on:click={showSidebar} class="md:hidden mt-10" src={Hamburer} width="30" height="30" alt="hamburger menu icon">
                     <ul class="hidden md:flex mt-10 items-center ">
                         <li class="px-2"> <a href="/home"> Home </a></li>
                         <li class="px-2"> <a href="/profile"> Profile </a>  </li>
@@ -29,5 +41,8 @@ import mobileLogo from '../lib/assets/CreatorVaultMobile.png'
                 </nav>
             </div>
         </div>
+    </div>
+    <div class="hidden" id="sidebar">
+        <Sidebar />
     </div>
 </main>

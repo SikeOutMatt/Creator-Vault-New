@@ -10,17 +10,27 @@ import profllepic from "../../lib/assets/profilepic.jpeg";
 import bunnyPic from '../../lib/assets/bunnypic.jpeg'
 import videoThumnail from '../../lib/assets/videothumbnail.png'
 import Videocard from "../../components/videocard.svelte";
+import {onMount} from "svelte";
 
 
-function videoCard() {
-    
-}
 
 let userTitle = "BunnyFuFuu's Vault";
 
+let showVideocard = false;
+
     /** @type {import('./$types').PageData} */
     export let data;
+
+   export const toggleVideoCard = () => {
+        showVideocard = !showVideocard;
+        
+    }
+
+
 </script>
+
+<Videocard {showVideocard}/>  
+
 
 <main>
     <Header />
@@ -37,7 +47,7 @@ let userTitle = "BunnyFuFuu's Vault";
                         <h1 class="text-2xl sm:text-4xl font-bold"> BunnyFuFuu's Vault </h1>
                     </div>
                     <div class="flex justify-center items-center">
-                        <h5 class="text-lg sm:text-xl font-semibold"> @BunnyFuFuu </h5>
+                        <h5 class="sm:text-xl font-semibold"> @BunnyFuFuu </h5>
                     </div>
                     <div class="flex justify-center items-center pb-5">
                         <img class="mx-2" src={xlogo} height="30px" width="30px" alt="x logo" > 
@@ -46,8 +56,17 @@ let userTitle = "BunnyFuFuu's Vault";
                     </div>
                 </section>
 
-                <div class=" w-4/5 mx-auto grid sm-grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 pt-8">
-                    <div class="bg-[#2a2a2a] bg-opacity-10 rounded-xl cursor-pointer"> 
+                <section class="w-4/5 mx-auto flex">
+                    <div class="flex justify-start items-center">
+                        <h1 class="px-2 text-xl"> Videos  </h1>
+                        <button> Photosets </button>
+                    </div>
+
+
+                </section>
+                <section id="videos"> 
+                    <div class=" w-4/5 mx-auto grid sm-grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 pt-8">
+                     <a on:click={toggleVideoCard}> <div class="bg-[#2a2a2a] bg-opacity-10 rounded-xl cursor-pointer"> 
                         <img class="rounded-t-xl" src={videoThumnail} alt="thumbnail" width="100%" height="100%">
                         <div class="px-2">
                             <h1 class="font-bold text-2xl text-[#3d6c9d] py-2 "> Video Title </h1>
@@ -59,7 +78,7 @@ let userTitle = "BunnyFuFuu's Vault";
                                 <h4 class="text-[#769fca] font-semibold"> Price: $49.99 </h4>
                             </div>
                         </div>
-                    </div>
+                    </div> </a> 
                     <div class="bg-[#2a2a2a] bg-opacity-10 rounded-xl"> 
                         <img class="rounded-t-xl" src={videoThumnail} alt="thumbnail" width="100%" height="100%">
                         <div class="px-2">
@@ -86,7 +105,13 @@ let userTitle = "BunnyFuFuu's Vault";
                             </div>
                         </div>
                     </div>
+                </section>
                  
+                <section class="hidden" id="photosets"> 
+                    <div>
+                        <h1> Photosets </h1>
+                    </div>
+                </section>
              
 
                     
@@ -97,7 +122,7 @@ let userTitle = "BunnyFuFuu's Vault";
                 </div>
                 
             </div>
-        </div>
+
 <Footer />
 
 

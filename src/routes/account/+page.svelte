@@ -3,6 +3,7 @@ import Header from "../../components/header.svelte";
 import Footer from "../../components/footer.svelte";
 import hamburger from "../../lib/assets/hamburger.png";
 import {onMount} from "svelte";
+import AppearanceSection from './appearance.svelte'
 
     /** @type {import('./$types').PageData} */
     export let data;
@@ -10,6 +11,25 @@ import {onMount} from "svelte";
 
 
     let pageTypeHeading = "";
+
+
+    function showAppearance() {
+        let appearance = document.getElementById("appearance");
+        let appearanceBtn = document.getElementById("appearanceBtn")
+
+        if (appearance.classList.contains("hidden")) {
+            profileSection.classList.add("hidden");
+            appearance.classList.remove("hidden")
+            accountSection.classList.add("hidden")
+            profileBtn.style.backgroundColor = "white"
+            accountBtn.style.backgroundColor = "white"
+            appearanceBtn.style.backgroundColor = "#DDDDDD"
+        } else {
+            appearance.classList.remove("hidden")
+        }
+
+
+    }
 
     onMount(() => {
     let profileBtn = document.getElementById("profileBtn");
@@ -23,6 +43,7 @@ import {onMount} from "svelte";
             accountSection.classList.add("hidden");
             profileBtn.style.backgroundColor = "#DDDDDD";
             accountBtn.style.backgroundColor = "white";
+            appearance.classList.add("hidden")
         } else {
             profileSection.classList.remove("hidden");
         }
@@ -62,7 +83,7 @@ import {onMount} from "svelte";
                 <ul class="py-3 hidden md:grid">
                     <button id="profileBtn" class=" w-full rounded-lg text-left text-lg py-2 pl-4"> Profile</button>
                     <button id="accountBtn" class=" w-full rounded-lg text-left text-lg py-2 pl-4"> Account </button>
-                    <button id="appearanceBtn" class=" w-full rounded-lg text-left text-lg py-2 pl-4"> Appearance</button>                   
+                    <button on:click={showAppearance} id="appearanceBtn" class=" w-full rounded-lg text-left text-lg py-2 pl-4"> Appearance</button>                   
                     <button id="notificationBtn" class=" w-full rounded-lg text-left text-lg py-2 pl-4"> Notifications</button>
                     <button id="paymentoptionsBtn" class=" w-full rounded-lg text-left text-lg py-2 pl-4"> Payment Options </button>                    
                     <button id="displatBtn" class=" w-full rounded-lg text-left text-lg py-2 pl-4"> Display</button>
@@ -121,7 +142,10 @@ import {onMount} from "svelte";
                     </div>
                     <button class="p-2 bg-black font-bold text-white text-md rounded-lg"> Update Account</button>
                 </div>
-               
+                <!-- Appearance Section -->
+                <section class="hidden" id="appearance">
+                    <AppearanceSection />
+                </section>
             </div>
         </div>
        
