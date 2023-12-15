@@ -4,6 +4,7 @@ import Footer from "../../components/footer.svelte";
 import hamburger from "../../lib/assets/hamburger.png";
 import {onMount} from "svelte";
 import AppearanceSection from './appearance.svelte'
+import Sidebar from "./sidebar.svelte";
 
     /** @type {import('./$types').PageData} */
     export let data;
@@ -26,6 +27,18 @@ import AppearanceSection from './appearance.svelte'
             appearanceBtn.style.backgroundColor = "#DDDDDD"
         } else {
             appearance.classList.remove("hidden")
+        }
+
+
+    }
+
+    function toggleSidebar() {
+        let accountSidebar = document.getElementById("accountSidebar")
+
+        if (accountSidebar.classList.contains("hidden")) {
+            accountSidebar.classList.remove("hidden")
+        } else {
+            accountSidebar.classList.add("hidden")
         }
 
 
@@ -67,7 +80,6 @@ import AppearanceSection from './appearance.svelte'
 </script>
 
 <main>  
-    <Header />
     <div class="w-10/12 mx-auto">
         <div>
             <div>
@@ -77,9 +89,13 @@ import AppearanceSection from './appearance.svelte'
             </div>
             
         </div>
+        <div id="accountSidebar" class="hidden">
+            <Sidebar />
+        
+        </div>
         <div class="grid grid-cols-5">
             <div>
-                <img class="md:hidden" src={hamburger} width="30" height="30" alt="hamburger menu"> 
+                <img id="hamburger" class="md:hidden" on:click={toggleSidebar} src={hamburger} width="30" height="30" alt="hamburger menu"> 
                 <ul class="py-3 hidden md:grid">
                     <button id="profileBtn" class=" w-full rounded-lg text-left text-lg py-2 pl-4"> Profile</button>
                     <button id="accountBtn" class=" w-full rounded-lg text-left text-lg py-2 pl-4"> Account </button>
@@ -152,6 +168,6 @@ import AppearanceSection from './appearance.svelte'
        
 </div>
 
-<Footer />
+
 
 </main>

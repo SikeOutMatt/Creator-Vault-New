@@ -7,7 +7,6 @@
 
 
 <main>
-    <Header />
     <div class="w-4/5 mx-auto">
         <div>
             <h1 class="font-bold text-2xl mt-8"> Upload Your Content </h1>
@@ -64,5 +63,4 @@
 
 
 
-    <Footer />
 </main>

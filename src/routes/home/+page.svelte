@@ -5,12 +5,12 @@
     import bunnyPic from '../../lib/assets/bunnypic.jpeg'
     import Footer from '../../components/footer.svelte'
     import mobileLogo from '../../lib/assets/CreatorVaultMobile.png'
+    import LoggedInHeader from "../../components/logged-in-header.svelte";
     /** @type {import('./$types').PageData} */
 </script>
 
 
 <main>
-    <Header />
 
     <div class="w-full md:w-3/5  mx-auto"> 
         <div class="justify-center items-center flex">
@@ -67,5 +67,4 @@
 
     </section>
 
-    <Footer /> 
 </main>

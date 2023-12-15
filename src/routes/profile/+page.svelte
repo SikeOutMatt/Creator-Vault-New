@@ -33,7 +33,6 @@ let showVideocard = false;
 
 
 <main>
-    <Header />
     <div>
             <div class="mt-5">
                 <section class="w-4/5 mx-auto bg-gray-100 rounded-md">
@@ -79,7 +78,7 @@ let showVideocard = false;
                             </div>
                         </div>
                     </div> </a> 
-                    <div class="bg-[#2a2a2a] bg-opacity-10 rounded-xl"> 
+                    <a href="/videohostingpage2"><div class="bg-[#2a2a2a] bg-opacity-10 rounded-xl"> 
                         <img class="rounded-t-xl" src={videoThumnail} alt="thumbnail" width="100%" height="100%">
                         <div class="px-2">
                             <h1 class="font-bold text-2xl text-[#3d6c9d] py-2"> Video Title </h1>
@@ -91,7 +90,7 @@ let showVideocard = false;
                                 <h4 class="text-[#769fca] font-semibold"> Price: $49.99 </h4>
                             </div>
                         </div>
-                    </div>
+                    </div></a>
                     <div class="bg-[#2a2a2a] bg-opacity-10 rounded-xl"> 
                         <img class="rounded-t-xl" src={videoThumnail} alt="thumbnail" width="100%" height="100%">
                         <div class="px-2">
@@ -122,8 +121,6 @@ let showVideocard = false;
                 </div>
                 
             </div>
-
-<Footer />
 
 
 
